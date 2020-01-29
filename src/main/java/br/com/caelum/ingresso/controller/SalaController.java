@@ -1,6 +1,7 @@
 package br.com.caelum.ingresso.controller;
 
 import br.com.caelum.ingresso.dao.SalaDao;
+import br.com.caelum.ingresso.dao.SessaoDao;
 import br.com.caelum.ingresso.model.Sala;
 import br.com.caelum.ingresso.model.form.SalaForm;
 
@@ -20,6 +21,9 @@ import java.util.Optional;
 @Controller
 public class SalaController {
 
+	@Autowired 
+	private SessaoDao sessaoDao;
+	
     @Autowired
     private SalaDao salaDao;
 
@@ -66,6 +70,7 @@ public class SalaController {
 
         ModelAndView view = new ModelAndView("sessao/lista");
         view.addObject("sala", sala);
+        view.addObject("sessoes",sessaoDao.buscaSesoesDaSala(sala));
 
         return view;
     }
