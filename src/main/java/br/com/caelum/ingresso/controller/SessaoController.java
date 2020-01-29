@@ -53,7 +53,7 @@ public class SessaoController {
 		
 		Sessao sessao = form.Tosessao(salaDao, filmeDao);
 		
-		List<Sessao> sessoesDaSala = sessaoDao.buscaSesoesDaSala(sessao.getSala());
+		List<Sessao> sessoesDaSala = sessaoDao.buscaSessoesDaSala(sessao.getSala());
 		
 		GerenciadorDeSessao gerenciador = new GerenciadorDeSessao(sessoesDaSala);
 		
